@@ -36,9 +36,22 @@ if (dataTraitement() && !empty($_POST['idRegion'])) {
     </script>";
     // header('Location:./?route=Region&module=list');
 } else if (dataTraitement()) {
-    $regionDAO->add($region);
-    echo "<script> 
-    alert ('Region ajouter');
-    document.location.href='./?route=Region&module=list';
-    </script>";
+    if (!empty($_POST['nomRegion'])) {
+        $nomRegion = $_POST['nomRegion'];
+        $regionEdit = $regionDAO->getOne('nomRegion', $nomRegion);
+        $data = $regionEdit->fetch(PDO::FETCH_ASSOC);
+        if ($data) {
+            echo "<script> 
+        alert ('La region existe deja');
+        document.location.href='./?route=Region&module=add';
+        </script>";
+            die();
+        } else {
+            $regionDAO->add($region);
+            echo "<script> 
+            alert ('Region ajouter');
+            document.location.href='./?route=Region&module=list';
+            </script>";
+        }
+    }
 }
