@@ -11,11 +11,12 @@ $form = new Formulaire();
         </div>
         <div class="card-body">
             <form action="" method="POST">
+                <input type="hidden" class="form-control" name="idUser" value="<?= $data['idUser'] ?>">
                 <?php
                 $form->divForm("Nom de l'utilisateur", "text", $data['nom'], "nom");
                 $form->divForm("Prenoms de l'utilisateur", "text", $data['prenoms'], "prenoms");
                 $form->divForm("Username", "email", $data['username'], "username");
-                $form->divForm("Mot de passe", "text", $data['password'], "password");
+                $form->divForm("Mot de passe", "text", $data['motPass'], "motPass");
                 ?>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
             </form>

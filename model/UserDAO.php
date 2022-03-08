@@ -10,20 +10,20 @@ class UserDAO
     public function add(User $user)
     {
         try {
-            $sql = $this->dbc->prepare("INSERT INTO regions (nom,prenoms,username,password) VALUES(?,?,?,?)");
-            $sql->bindParam(1, $nom);
-            $sql->bindParam(2, $prenoms);
-            $sql->bindParam(3, $username);
-            $sql->bindParam(4, $password);
-            return $sql->execute([$user->getnom(), $user->getPrenoms(), $user->getUsername(), $user->getPassword()]);
+            $sql = $this->dbc->prepare("INSERT INTO users (nom,prenoms,username,motPass) VALUES(?,?,?,?)");
+            return $sql->execute([$user->getNom(), $user->getPrenoms(), $user->getUsername(), $user->getMotPass()]);
         } catch (PDOException $e) {
             echo "Error" . $e->getMessage();
         }
     }
     public function update(User $user)
     {
-        $sql = $this->dbc->prepare("UPDATE users SET nom=? AND prenoms=? AND username=? AND password=? WHERE idUser=? ");
-        return $sql->execute([$user->getnom(), $user->getPrenoms(), $user->getUsername(), $user->getPassword(), $user->getIdUser()]);
+        try {
+            $sql = $this->dbc->prepare("UPDATE users SET nom=? , prenoms=? , username=? , motPass=? WHERE idUser=? ");
+            return $sql->execute([$user->getNom(), $user->getPrenoms(), $user->getUsername(), $user->getMotPass(), $user->getIdUser()]);
+        } catch (PDOException $e) {
+            echo "Error" . $e->getMessage();
+        }
     }
 
     public function getAll()
@@ -37,7 +37,14 @@ class UserDAO
     {
         $sql = $this->dbc->prepare("SELECT * FROM users WHERE " . $coloneName . "=?");
         $sql->execute([$value]);
-      
         return $sql;
     }
+
+    public function delete($idUser)
+    {
+        $sql = $this->dbc->prepare("DELETE FROM users WHERE idUser=?");
+        $sql->execute([$idUser]);
+        return $sql;
+    }
+    
 }

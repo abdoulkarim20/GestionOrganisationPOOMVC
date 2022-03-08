@@ -5,7 +5,7 @@ class User
     private $nom;
     private $prenoms;
     private $username;
-    private $password;
+    private $motPass;
     //Les getters et setters
     public function setIdUser($idUser)
     {
@@ -15,15 +15,15 @@ class User
     {
         return $this->idUser;
     }
-    public function setINom($nom)
+    public function setNom($nom)
     {
         $this->nom = $nom;
     }
-    public function getnom()
+    public function getNom()
     {
         return $this->nom;
     }
-    public function setIPrenoms($prenoms)
+    public function setPrenoms($prenoms)
     {
         $this->prenoms = $prenoms;
     }
@@ -31,7 +31,7 @@ class User
     {
         return $this->prenoms;
     }
-    public function setIUsername($username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
@@ -39,12 +39,12 @@ class User
     {
         return $this->username;
     }
-    public function setIPassword($password)
+    public function setMotPass($motPass)
     {
-        $this->password = $password;
+        $this->motPass = $motPass;
     }
-    public function getPassword()
+    public function getMotPass()
     {
-        return $this->password;
+        return $this->motPass;
     }
 }

@@ -1,19 +1,19 @@
 <?php
 if (!empty($_POST)) {
     $dbc  = new PDO('mysql:host=localhost;dbname=POO_MVC_PHP;charset=utf8', 'root', 'Fooly@1251');
-    $sql = $dbc->prepare("SELECT * FROM users WHERE username=:username AND password=:password");
+    $sql = $dbc->prepare("SELECT * FROM users WHERE username=:username AND motPass=:motPass");
     $sql->execute([
         'username' => $_POST['username'],
-        'password' => $_POST['password']
+        'motPass' => $_POST['motPass']
     ]);
     $admin = $sql->fetch();
     if ($admin) {
         session_start();
-        $_SESSION['idUser'] = $admin['idUser'];
+        $_SESSION['motPass'] = $admin['motPass'];
         $_SESSION['nom'] = $admin['nom'];
         $_SESSION['prenoms'] = $admin['prenoms'];
         $_SESSION['username'] = $admin['username'];
-        $_SESSION['password'] = $admin['password'];
+        $_SESSION['motPass'] = $admin['motPass'];
         header("Location:http://localhost/GestionOrganisation");
     } else {
         echo " <script>
@@ -41,7 +41,7 @@ if (!empty($_POST)) {
                         <input type="email" class="form-control sty1" name="username" placeholder="Nom d'utilisateur">
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control sty1" name="password" placeholder="Mot de passe">
+                        <input type="motPass" class="form-control sty1" name="motPass" placeholder="Mot de passe">
                     </div>
                     <div>
                         <div class="col-xs-4 m-t-1">

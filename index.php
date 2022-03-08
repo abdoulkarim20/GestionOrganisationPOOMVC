@@ -1,17 +1,17 @@
 <?php
 session_start();
 $_SESSION['username'];
-$_SESSION['password'];
-if (!($_SESSION['username']) && !($_SESSION['password'])) {
+$_SESSION['motPass'];
+if (!($_SESSION['username']) && !($_SESSION['motPass'])) {
   header("Location:connexion.php");
   die();
   // ?route=Authentification&module=login
 }
-$_SESSION['idUser'];
+$_SESSION['motPass'];
 $_SESSION['nom'];
 $_SESSION['prenoms'];
 $_SESSION['username'];
-$_SESSION['password'];
+$_SESSION['motPass'];
 
 
 require_once "./model/Region.php";
