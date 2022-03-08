@@ -4,8 +4,8 @@ if (!empty($_GET['route'])) {
         case 'Region':
             require_once "./view/region/index.php";
             break;
-        case 'Authentification':
-            require_once "./view/authentification/index.php";
+        case 'User':
+            require_once "./view/user/index.php";
             break;
     }
 }

@@ -23,8 +23,6 @@ class RegionDAO
     {
         try {
             $sql = $this->dbc->prepare("UPDATE regions SET nomRegion=? WHERE idRegion=?");
-            // $sql->bindParam(':nomRegion', $nomRegion);
-            // $sql->bindParam(':idRegion', $idRegion);
             return $sql->execute([$region->getNomRegion(), $region->getIdRegion()]);
         } catch (PDOException $e) {
             echo "Error" . $e->getMessage();
