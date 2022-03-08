@@ -4,7 +4,7 @@
             <!-- <div class="image text-center"><img src="dist/img/img1.jpg" class="img-circle" alt="User Image"> </div> -->
             <div class="info">
                 <p style="color: black;"> <?= $_SESSION['prenoms'] . " " . $_SESSION['nom']; ?></p>
-                <a href="./connexion.php"><i class="fa fa-power-off"></i></a>
+                <a href="./view/authentification/deconnexion.php"><i class="fa fa-power-off"></i></a>
             </div>
         </div>
         <ul class="sidebar-menu" data-widget="tree">

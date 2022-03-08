@@ -4,7 +4,7 @@ if (!empty($_GET['module'])) {
         case 'logout':
             require_once "deconnexion.php";
             break;
-        case 'login':
+        case 'connexion':
             require_once "connexion.php";
             break;
         case 'list':

@@ -7,5 +7,8 @@ if (!empty($_GET['route'])) {
         case 'User':
             require_once "./view/user/index.php";
             break;
+            case 'Login':
+                require_once "./view/authentification/index.php";
+                break;
     }
 }
