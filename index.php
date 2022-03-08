@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "controller/AuthentificationController.php";
+require_once "utils/LoginAccess.php";
 giveAccess();
 
 ?>
