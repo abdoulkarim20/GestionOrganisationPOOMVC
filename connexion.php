@@ -1,29 +1,6 @@
 <?php
-if (!empty($_POST)) {
-    $dbc  = new PDO('mysql:host=localhost;dbname=POO_MVC_PHP;charset=utf8', 'root', 'Fooly@1251');
-    $sql = $dbc->prepare("SELECT * FROM users WHERE username=:username AND motPass=:motPass");
-    $sql->execute([
-        'username' => $_POST['username'],
-        'motPass' => $_POST['motPass']
-    ]);
-    $admin = $sql->fetch();
-    if ($admin) {
-        session_start();
-        $_SESSION['motPass'] = $admin['motPass'];
-        $_SESSION['nom'] = $admin['nom'];
-        $_SESSION['prenoms'] = $admin['prenoms'];
-        $_SESSION['username'] = $admin['username'];
-        $_SESSION['motPass'] = $admin['motPass'];
-        header("Location:http://localhost/GestionOrganisation");
-    } else {
-        echo " <script>
-             alert('Username ou mot de passe inncorrect');
-             document.location.href='connexion.php';
-             </script>";
-        die();
-    }
-}
-
+session_start();
+require_once "controller/AuthentificationController.php";
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +13,7 @@ if (!empty($_POST)) {
         <div class="">
             <div class="login-box-body">
                 <h3 class="login-box-msg">Authentification</h3>
-                <form action="" method="post">
+                <form action="" method="POST">
                     <div class="form-group has-feedback">
                         <input type="email" class="form-control sty1" name="username" placeholder="Nom d'utilisateur">
                     </div>

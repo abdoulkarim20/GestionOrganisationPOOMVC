@@ -1,5 +1,6 @@
 <?php
 require_once "User.php";
+require_once "./utils/DataBaseHelper.php";
 class UserDAO
 {
     private $dbc;
@@ -46,5 +47,11 @@ class UserDAO
         $sql->execute([$idUser]);
         return $sql;
     }
-    
+    //Recuperation de la connexion en session
+    public function createSession($column1, $value1, $colum2, $value2)
+    {
+        $sql = $this->dbc->prepare("SELECT * FROM users WHERE " . $column1 . "=?" .  " AND " . $colum2 . "=?");
+        $sql->execute([$value1, $value2]);
+        return $sql;
+    }
 }

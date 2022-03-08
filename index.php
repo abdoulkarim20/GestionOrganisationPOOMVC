@@ -1,25 +1,9 @@
 <?php
 session_start();
-$_SESSION['username'];
-$_SESSION['motPass'];
-if (!($_SESSION['username']) && !($_SESSION['motPass'])) {
-  header("Location:connexion.php");
-  die();
-  // ?route=Authentification&module=login
-}
-$_SESSION['motPass'];
-$_SESSION['nom'];
-$_SESSION['prenoms'];
-$_SESSION['username'];
-$_SESSION['motPass'];
-
-
-require_once "./model/Region.php";
-$region = new Region();
+require_once "controller/AuthentificationController.php";
+giveAccess();
 
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
