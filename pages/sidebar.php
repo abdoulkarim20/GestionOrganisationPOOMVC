@@ -11,14 +11,20 @@
             <li class="header">PERSONAL</li>
             <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Gestion des users</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="?route=User&module=add">Ajouter un user</a></li>
-                    <li><a href="?route=User&module=list">Listes des users</a></li>
+                    <li class="active"><a href="?route=User&module=add">Ajouter</a></li>
+                    <li><a href="?route=User&module=list">Lister</a></li>
                 </ul>
             </li>
             <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Gestion des regions</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="?route=Region&module=add">Ajouter une Region</a></li>
-                    <li><a href="?route=Region&module=list">Listes des regions</a></li>
+                    <li class="active"><a href="?route=Region&module=add">Ajouter</a></li>
+                    <li><a href="?route=Region&module=list">Lister</a></li>
+                </ul>
+            </li>
+            <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Gestion Organisation</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+                <ul class="treeview-menu">
+                    <li class="active"><a href="?route=Region&module=add">Ajouter</a></li>
+                    <li><a href="?route=Region&module=list">Lister</a></li>
                 </ul>
             </li>
             <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
@@ -161,3 +167,6 @@
     </div>
     <!-- /.sidebar -->
 </aside>
+
+
+
