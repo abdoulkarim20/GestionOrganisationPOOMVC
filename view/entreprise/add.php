@@ -1,20 +1,66 @@
 <?php
-require_once "./controller/RegionController.php";
 require_once "./utils/Formulaire.php";
 $form = new Formulaire();
 ?>
 
-<div class="mb-5 col-lg-12">
+<div class="mb-5 col-lg-6">
     <div class="card card-outline">
         <div class="card-header bg-blue">
-            <h5 class="text-white m-b-0">Ajouter une region</h5>
+            <h5 class="text-white m-b-0">Formulaire au reponse au questions d'enquettes</h5>
         </div>
         <div class="card-body">
             <form action="" method="POST">
                 <?php
-                $form->divForm("Nom de la region", "text", "", "nomRegion");
-                // $form->divForm("Superficie de la region", "text", "", "nomRegion");
+                $form->divForm("Nom de l’entreprise", "text", "", "nomEntreprise");
+                $form->divForm("Coordonnée GPS", "text", "", "conrdonneeGPS");
+                $form->divForm("Siège Social", "text", "", "siegeSociale");
+                $form->divForm("Quelle est la date de création de votre entreprise ?", "date", "", "dateCreation");
+                $form->divForm("registre de commerce", "text", "", "registreCommerce");
+                $form->divForm("NINEA", "text", "", "NINEA");
+                $form->divForm("Page Web de votre entreprise", "text", "", "pageWeb");
                 ?>
+                <div>
+                    <div>
+                        <label>Quel est le nombre d'employées? :</label>
+                        <select class="form-select">
+                            <option value="1 a 5">1 a 5</option>
+                            <option value="5 a 15">5 a 15</option>
+                            <option value="">plus</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Ont-ils des contrats formel? :</label>
+                        <select class="form-select">
+                            <option value="1 a 5">1 a 5</option>
+                            <option value="5 a 15">5 a 15</option>
+                            <option value="">plus</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Existe t-il un organigramme claire et respecté ? :</label>
+                        <select class="form-select">
+                            <option value="1 a 5">1 a 5</option>
+                            <option value="5 a 15">5 a 15</option>
+                            <option value="">plus</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Existe t-il un dispositif de formation du personnel ? :</label>
+                        <select class="form-select">
+                            <option value="1 a 5">1 a 5</option>
+                            <option value="5 a 15">5 a 15</option>
+                            <option value="">plus</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Votre entreprise prend-elle en compte les quotisations sociales et patronale ? :</label>
+                        <select class="form-select">
+                            <option value="1 a 5">1 a 5</option>
+                            <option value="5 a 15">5 a 15</option>
+                            <option value="">plus</option>
+                        </select>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
             </form>
         </div>
