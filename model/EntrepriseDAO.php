@@ -48,4 +48,10 @@ class EntrepriseDAO
             echo "Error" . $e->getMessage();
         }
     }
+    public function getOne($coloneName, $value)
+    {
+        $sql = $this->dbc->prepare("SELECT idEntreprise ,nomEntreprise,conrdonneeGPS,nomQuartier,siegeSociale,nomCompletRepondant,fonctionRepondant,telephoneRepondant,emailRepondant,dateCreation,libelleRegime,registreCommerce,NINEA,nomDomaine,pageWeb,nombreEmployer,contratFormel,organigrammeRespecter,dispositifFormation,questionSociale FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg WHERE e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime AND " . $coloneName . "=?");
+        $sql->execute([$value]);
+        return $sql;
+    }
 }

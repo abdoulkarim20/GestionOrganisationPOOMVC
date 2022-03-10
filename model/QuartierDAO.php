@@ -8,8 +8,9 @@ class QuartierDAO
     {
         $this->dbc = DataBaseHelper::getConnexion();
     }
-    public function getAll(){
-        $sql=$this->dbc->prepare("SELECT * FROM quartiers q,communes c WHERE q.fk_idCommune=c.idCommune");
+    public function getAll()
+    {
+        $sql = $this->dbc->prepare("SELECT * FROM quartiers q,communes c WHERE q.fk_idCommune=c.idCommune");
         $sql->execute();
         return $sql;
     }

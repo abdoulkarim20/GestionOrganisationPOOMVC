@@ -14,7 +14,7 @@ $data = $data->allReponse();
                     <th scope="col">Identifiant</th>
                     <th scope="col">Nom de l’entreprise</th>
                     <th scope="col">Date de création</th>
-                    <th scope="col">Quartier/ Village</th>
+                    <th scope="col">Quartier</th>
                     <th scope="col">Siège Social</th>
                     <th scope="col">Nom et Prénom du Répondant</th>
                     <th scope="col">Fonction du répondant</th>
@@ -33,7 +33,7 @@ $data = $data->allReponse();
                         <td><?= $key['nomCompletRepondant'] ?></td>
                         <td><?= $key['fonctionRepondant'] ?></td>
                         <td><?= $key['telephoneRepondant'] ?></td>
-                        <td class="text-center"><a href="?route=Organisation&module=delete&idEntreprise=<?= $key['idEntreprise']; ?>"><i class="bi bi-eye-fill" style="color: primary; font-size:1.5rem;"></i></a></td>
+                        <td class="text-center"><a href="?route=Organisation&module=vue&idEntreprise=<?= $key['idEntreprise']; ?>"><i class="bi bi-eye-fill" style="color: primary; font-size:1.5rem;"></i></a></td>
                         <td class="text-center"><a href="?route=Organisation&module=edit&idEntreprise=<?= $key['idEntreprise']; ?>"><i class="bi bi-pencil-square" style="color: primary; font-size:1.5rem;"></i></a></td>
                         <td class="text-center"><a href="?route=Organisation&module=delete&idEntreprise=<?= $key['idEntreprise']; ?>"><i class="bi bi-trash3" style="color: #ce0033; font-size:1.5rem;"></i></a></td>
                     </tr>

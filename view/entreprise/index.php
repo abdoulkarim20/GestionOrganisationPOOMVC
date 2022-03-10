@@ -13,6 +13,9 @@ if (!empty($_GET['module'])) {
         case 'delete':
             require_once "delete.php";
             break;
+            case 'vue':
+                require_once "vue.php";
+                break;
         default:
             echo "<h1>Error 404</h1>";
             break;
