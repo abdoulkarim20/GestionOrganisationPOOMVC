@@ -32,4 +32,9 @@ class EntrepriseDAO
             $entreprise->getFk_idRegimeJuridique()
         ]);
     }
+    public function getAll(){
+        $sql=$this->dbc->prepare("SELECT idEntreprise ,nomEntreprise,conrdonneeGPS,nomQuartier,siegeSociale,nomCompletRepondant,fonctionRepondant,telephoneRepondant,emailRepondant,dateCreation,libelleRegime,registreCommerce,NINEA,nomDomaine,pageWeb,nombreEmployer,contratFormel,organigrammeRespecter,dispositifFormation,questionSociale FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg where e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime");
+        $sql->execute();
+        return $sql;
+    }
 }

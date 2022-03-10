@@ -1,6 +1,10 @@
 <?php
 require_once "./utils/Formulaire.php";
 require_once "./controller/EntrepriseController.php";
+require_once "./controller/QuartieController.php";
+$quartier = new QuartierController();
+$data = $quartier->affichageQuartier();
+
 $entrepriseController = new EntrepriseController();
 $entrepriseController->ajouter();
 $form = new Formulaire();
@@ -61,6 +65,15 @@ var_dump($_POST);
                             <option value="Non">Non</option>
                         </select>
                     </div>
+                </div>
+                <div>
+                    <!-- <label>Quartier ? :</label> -->
+                    <select class="form-select" name="fk_idQuartier">
+                        <option selected class="form-group">Quartier ou se trouve l'entreprise</option>
+                        <?php foreach ($data as $key) { ?>
+                            <option value="<?= $key['idQuartier']; ?>"><?= $key['nomQuartier']; ?></option>
+                        <?php  } ?>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
             </form>

@@ -21,7 +21,7 @@ class EntrepriseController
             $entreprise->setOrganigrammeRespecter($_POST['organigrammeRespecter']);
             $entreprise->setDispositifFormation($_POST['dispositifFormation']);
             $entreprise->setQuestionSociale($_POST['questionSociale']);
-            $entreprise->setFk_idQuartier(1);
+            $entreprise->setFk_idQuartier($_POST['fk_idQuartier']);
             $entreprise->setFk_idRepondant(1);
             $entreprise->setFk_idDomaine(1);
             $entreprise->setFk_idRegimeJuridique(1);
@@ -30,12 +30,17 @@ class EntrepriseController
                 echo "<script>alert('ajout ok')</script>";
             } else {
                 echo "<script>alert('pas ok')</script>";
-                //     $entreprise->setNomEntreprise($_POST['fk_idQuartier']);
+                //     
                 // $entreprise->setNomEntreprise($_POST['fk_idRepondant']);
                 // $entreprise->setNomEntreprise($_POST['fk_idDomaine']);
                 // $entreprise->setNomEntreprise($_POST['fk_idRegimeJuridique']);
 
             }
         }
+    }
+    public function allReponse(){
+        $entrepriseDAO = new EntrepriseDAO();
+        $data=$entrepriseDAO->getAll()->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
     }
 }
