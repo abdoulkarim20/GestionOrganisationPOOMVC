@@ -27,14 +27,11 @@ class EntrepriseController
             $entreprise->setFk_idRegimeJuridique(1);
             $entrepriseDAO->add($entreprise);
             if ($entrepriseDAO) {
-                echo "<script>alert('ajout ok')</script>";
+                echo "<script>alert('Enregistrement effectuer avec success');
+                document.location.href='./?route=Organisation&module=list'</script>";
             } else {
-                echo "<script>alert('pas ok')</script>";
-                //     
-                // $entreprise->setNomEntreprise($_POST['fk_idRepondant']);
-                // $entreprise->setNomEntreprise($_POST['fk_idDomaine']);
-                // $entreprise->setNomEntreprise($_POST['fk_idRegimeJuridique']);
-
+                echo "<script>alert('Echec de enregistrement');
+                document.location.href='./?route=Organisation&module=add'</script>";
             }
         }
     }
