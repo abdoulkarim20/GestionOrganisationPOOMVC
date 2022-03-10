@@ -38,9 +38,10 @@ class EntrepriseController
             }
         }
     }
-    public function allReponse(){
+    public function allReponse()
+    {
         $entrepriseDAO = new EntrepriseDAO();
-        $data=$entrepriseDAO->getAll()->fetchAll(PDO::FETCH_ASSOC);
+        $data = $entrepriseDAO->getAll()->fetchAll(PDO::FETCH_ASSOC);
         return $data;
     }
 }
