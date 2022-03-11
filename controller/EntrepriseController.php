@@ -59,8 +59,10 @@ class EntrepriseController
                 document.location.href='./?route=Organisation&module=add'</script>";
             }
         } else if(!empty($_POST) && !empty($_POST['idEntreprise'])){
-            echo "<script>alert('Echec de enregistrement');
-                document.location.href='./?route=Organisation&module=add'</script>";
+            $entreprise->setIdEntreprise($_POST['IdEntreprise']);
+            $entrepriseDAO->update($entreprise);
+            echo "<script>alert('Modif de enregistrement');
+                document.location.href='./?route=Organisation&module=list'</script>";
         }
         // else if (verifchamp() && !!empty($_POST['idEntreprise'])) {
         //     $entreprise->setNomEntreprise($_POST['idEntreprise']);
