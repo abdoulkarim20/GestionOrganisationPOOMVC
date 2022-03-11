@@ -2,8 +2,19 @@
 require_once "./utils/Formulaire.php";
 require_once "./controller/EntrepriseController.php";
 require_once "./controller/QuartieController.php";
+require_once "./controller/DomaineController.php";
+require_once "./controller/RepondantController.php";
+require_once "./controller/RegimeJuridiqueController.php";
+$regimeController = new RegimeJuridiqueController();
+$repondant = new RepondantDAO();
+$domaine = new DomaineController();
 $quartier = new QuartierController();
-$data = $quartier->affichageQuartier();
+$quartiers = $quartier->affichageQuartier();
+$domaines = $domaine->affichageDomaine();
+$repondants = $repondant->getAll();
+$regimes = $regimeController->affichageRegime();
+print_r($regimes);
+// die();
 
 $entrepriseController = new EntrepriseController();
 $entrepriseController->ajouter();
@@ -67,11 +78,34 @@ var_dump($_POST);
                     </div>
                 </div>
                 <div>
-                    <!-- <label>Quartier ? :</label> -->
                     <select class="form-select" name="fk_idQuartier">
                         <option selected class="form-group">Quartier ou se trouve l'entreprise</option>
-                        <?php foreach ($data as $key) { ?>
+                        <?php foreach ($quartiers as $key) { ?>
                             <option value="<?= $key['idQuartier']; ?>"><?= $key['nomQuartier']; ?></option>
+                        <?php  } ?>
+                    </select>
+                </div>
+                <div>
+                    <select class="form-select" name="fk_idDomaine">
+                        <option selected class="form-group">Domaine d'activite de l'entreprise</option>
+                        <?php foreach ($domaines as $val) { ?>
+                            <option value="<?= $val['idDomaine']; ?>"><?= $val['nomDomaine']; ?></option>
+                        <?php  } ?>
+                    </select>
+                </div>
+                <div>
+                    <select class="form-select" name="fk_idRepondant">
+                        <option selected class="form-group">Nom du repondant</option>
+                        <?php foreach ($repondants as $val) { ?>
+                            <option value="<?= $val['idRepondant']; ?>"><?= $val['nomCompletRepondant']; ?></option>
+                        <?php  } ?>
+                    </select>
+                </div>
+                <div>
+                    <select class="form-select" name="fk_idRegimeJuridique">
+                        <option selected class="form-group">Domaine d'activite de l'entreprise</option>
+                        <?php foreach ($regimes as $val) { ?>
+                            <option value="<?= $val['idRegime']; ?>"><?= $val['libelleRegime']; ?></option>
                         <?php  } ?>
                     </select>
                 </div>
