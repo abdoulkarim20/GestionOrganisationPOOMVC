@@ -55,7 +55,7 @@ class EntrepriseController
             echo "<script>alert('Enregistrement effectuer avec success');
                 document.location.href='./?route=Organisation&module=list'</script>";
         } else {
-            echo "<h4>Tous les champs sont oligatoires </h4>";
+            false;
         }
     }
     public function allReponse()

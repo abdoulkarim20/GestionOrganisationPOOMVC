@@ -76,15 +76,15 @@ $entrepriseController->modification();
                         </select>
                     </div>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idQuartier">
-                        <option selected value="<?= $modif['fk_idQuartier'] ?>">Quartier ou se trouve l'entreprise</option>
+                        <option selected value="<?= $modif['fk_idQuartier'] ?>">Dans quel quartier se trouve l'entreprise</option>
                         <?php foreach ($quartiers as $key) { ?>
                             <option value="<?= $key['idQuartier']; ?>"><?= $key['nomQuartier']; ?></option>
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idDomaine">
                         <option selected value="<?= $modif['fk_idDomaine'] ?>">Domaine d'activite de l'entreprise</option>
                         <?php foreach ($domaines as $val) { ?>
@@ -92,7 +92,7 @@ $entrepriseController->modification();
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idRepondant">
                         <option selected value="<?= $modif['fk_idRepondant'] ?>">Nom du repondant</option>
                         <?php foreach ($repondants as $val) { ?>
@@ -100,7 +100,7 @@ $entrepriseController->modification();
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idRegimeJuridique">
                         <option selected value="<?= $modif['fk_idRegimeJuridique'] ?>">Regime juridique de l'entreprise</option>
                         <?php foreach ($regimes as $val) { ?>
@@ -109,6 +109,8 @@ $entrepriseController->modification();
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
+                <a class="btn btn-danger" href="?route=Organisation&module=list">Annuler</a>
+
             </form>
         </div>
     </div>

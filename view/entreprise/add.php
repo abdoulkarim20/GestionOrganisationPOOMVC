@@ -72,15 +72,15 @@ $form = new Formulaire();
                         </select>
                     </div>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idQuartier">
-                        <option selected class="form-group">Quartier ou se trouve l'entreprise</option>
+                        <option selected class="form-group">Dans quel Quartier se trouve l'entreprise</option>
                         <?php foreach ($quartiers as $key) { ?>
                             <option value="<?= $key['idQuartier']; ?>"><?= $key['nomQuartier']; ?></option>
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idDomaine">
                         <option selected class="form-group">Domaine d'activite de l'entreprise</option>
                         <?php foreach ($domaines as $val) { ?>
@@ -88,7 +88,7 @@ $form = new Formulaire();
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-3">
                     <select class="form-select" name="fk_idRepondant">
                         <option selected class="form-group">Nom du repondant</option>
                         <?php foreach ($repondants as $val) { ?>
@@ -96,7 +96,7 @@ $form = new Formulaire();
                         <?php  } ?>
                     </select>
                 </div>
-                <div>
+                <div class="mb-4">
                     <select class="form-select" name="fk_idRegimeJuridique">
                         <option selected class="form-group">Regime juridique de l'entreprise</option>
                         <?php foreach ($regimes as $val) { ?>
@@ -105,7 +105,9 @@ $form = new Formulaire();
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success">Enregistrer</button>
+                <a class="btn btn-danger" href="?route=Organisation&module=list">Annuler</a>
             </form>
+            <h5 class="text-black mt-4">* Tous les champs sont oligatoires</h5>
         </div>
     </div>
 </div>
