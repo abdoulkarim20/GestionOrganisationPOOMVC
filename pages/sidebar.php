@@ -27,7 +27,7 @@
                     <li><a href="?route=Organisation&module=list">Lister</a></li>
                 </ul>
             </li>
-            <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
+            <!-- <li class="active treeview"> <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> <span class="pull-right-container"> <i class="fa fa-angle-left pull-right"></i> </span> </a>
                 <ul class="treeview-menu">
                     <li class="active"><a href="index.html">Dashboard 1</a></li>
                     <li><a href="index2.html">Dashboard 2</a></li>
@@ -162,7 +162,7 @@
                     </li>
                     <li><a href="#">Level One</a></li>
                 </ul>
-            </li>
+            </li> -->
         </ul>
     </div>
     <!-- /.sidebar -->
