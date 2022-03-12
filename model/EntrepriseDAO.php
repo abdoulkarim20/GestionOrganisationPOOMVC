@@ -79,4 +79,10 @@ class EntrepriseDAO
         $sql->execute([$value]);
         return $sql;
     }
+    public function getDetail($coloneName, $value)
+    {
+        $sql = $this->dbc->prepare("SELECT * FROM entreprises ent, regions reg, departements dep, communes com, quartiers quar, domaines dom, regimeJuridiques regJ, repondants repo WHERE dep.fk_regionId=reg.idRegion AND com.fk_idDepartement=com.idCommune AND quar.fk_idCommune=com.idCommune AND ent.fk_idQuartier=quar.idQuartier AND ent.fk_idDomaine=dom.idDomaine AND ent.fk_idRegimeJuridique=regJ.idRegime AND ent.fk_idRepondant=repo.idRepondant AND " . $coloneName . "=? LIMIT 1 ");
+        $sql->execute([$value]);
+        return $sql;
+    }
 }

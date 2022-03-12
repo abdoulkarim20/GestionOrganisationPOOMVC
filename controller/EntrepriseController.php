@@ -109,4 +109,13 @@ class EntrepriseController
                 document.location.href='./?route=Organisation&module=list'</script>";
         }
     }
+    public function detailEntreprise()
+    {
+        $enDao = new EntrepriseDAO();
+        if (!empty($_GET['idEntreprise'])) {
+            $idEntreprise = $_GET['idEntreprise'];
+            $data = $enDao->getDetail('idEntreprise', $idEntreprise)->fetch();
+            return $data;
+        }
+    }
 }
