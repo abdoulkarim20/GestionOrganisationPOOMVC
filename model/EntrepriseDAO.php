@@ -53,12 +53,13 @@ class EntrepriseDAO
             $entreprise->getFk_idQuartier(),
             $entreprise->getFk_idRepondant(),
             $entreprise->getFk_idDomaine(),
-            $entreprise->getFk_idRegimeJuridique()
+            $entreprise->getFk_idRegimeJuridique(),
+            $entreprise->getIdEntreprise()
         ]);
     }
     public function getAll()
     {
-        $sql = $this->dbc->prepare("SELECT idEntreprise ,nomEntreprise,conrdonneeGPS,nomQuartier,siegeSociale,nomCompletRepondant,fonctionRepondant,telephoneRepondant,emailRepondant,dateCreation,libelleRegime,registreCommerce,NINEA,nomDomaine,pageWeb,nombreEmployer,contratFormel,organigrammeRespecter,dispositifFormation,questionSociale FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg where e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime");
+        $sql = $this->dbc->prepare("SELECT * FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg where e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime");
         $sql->execute();
         return $sql;
     }
@@ -74,7 +75,7 @@ class EntrepriseDAO
     }
     public function getOne($coloneName, $value)
     {
-        $sql = $this->dbc->prepare("SELECT idEntreprise ,nomEntreprise,conrdonneeGPS,nomQuartier,siegeSociale,nomCompletRepondant,fonctionRepondant,telephoneRepondant,emailRepondant,dateCreation,libelleRegime,registreCommerce,NINEA,nomDomaine,pageWeb,nombreEmployer,contratFormel,organigrammeRespecter,dispositifFormation,questionSociale FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg WHERE e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime AND " . $coloneName . "=?");
+        $sql = $this->dbc->prepare("SELECT * FROM entreprises e, domaines d, repondants r,quartiers q,regimeJuridiques rg WHERE e.fk_idQuartier=q.idQuartier AND e.fk_idRepondant=r.idRepondant AND e.fk_idDomaine=d.idDomaine AND e.fk_idRegimeJuridique=rg.idRegime AND " . $coloneName . "=?");
         $sql->execute([$value]);
         return $sql;
     }

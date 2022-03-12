@@ -13,14 +13,9 @@ $quartiers = $quartier->affichageQuartier();
 $domaines = $domaine->affichageDomaine();
 $repondants = $repondant->getAll();
 $regimes = $regimeController->affichageRegime();
-print_r($regimes);
-// die();
-
 $entrepriseController = new EntrepriseController();
 $entrepriseController->ajouter();
 $form = new Formulaire();
-
-var_dump($_POST);
 ?>
 
 <div class="mb-5 col-lg-6">
@@ -103,7 +98,7 @@ var_dump($_POST);
                 </div>
                 <div>
                     <select class="form-select" name="fk_idRegimeJuridique">
-                        <option selected class="form-group">Domaine d'activite de l'entreprise</option>
+                        <option selected class="form-group">Regime juridique de l'entreprise</option>
                         <?php foreach ($regimes as $val) { ?>
                             <option value="<?= $val['idRegime']; ?>"><?= $val['libelleRegime']; ?></option>
                         <?php  } ?>
