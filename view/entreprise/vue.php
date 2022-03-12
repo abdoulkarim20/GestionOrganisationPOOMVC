@@ -2,6 +2,7 @@
 require_once "./controller/EntrepriseController.php";
 $data = new EntrepriseController();
 $detail = $data->detailEntreprise();
+// print_r($detail);
 ?>
 <div class="info-box">
     <h4 style="font-weight: bold;" class="text-black mb-3">Les responses fournies par <?= $detail['nomCompletRepondant'] ?></h4>
